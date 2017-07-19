@@ -1,0 +1,78 @@
+<html>
+
+<head>
+    <title>js-Lab6-submission</title>
+    <meta charset="utf-8"/>
+</head>
+
+<body>
+    <form>
+        <center>
+            <table cellspacing="25">
+                <tr>
+                    <td>
+                        <label>Enter your name:</label>
+                    </td>
+                    <td>
+                        <input type="text" id="txt1" /> </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label>Enter your age:</label>
+                    </td>
+                    <td>
+                        <input type="text" id="txt2" /> </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <label>Select your gender:</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="radio" value="male" name="gender" /> <img src=male.jpg /></td>
+                    <td>
+                        <input type="radio" value="female" name="gender" /> <img src=female.jpg /></td>
+                </tr>
+                <tr>
+                    <td>
+                        <label>Select your favourite color:</label>
+                    </td>
+                    <td>
+                        <select>
+                            <option id="r" value="red">Red</option>
+                            <option id="g" value="green">Green</option>
+                            <option id="b" value="blue">Blue</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" align="center">
+                        <input type="button" value="register" onclick="createCookie()"> </td>
+                </tr>
+            </table>
+        </center>
+    </form>
+    <script>
+        function createCookie() {
+            var name = document.getElementById("txt1").value;
+            var gend = document.getElementsByName("gender");
+            var gender, color;
+            var mydate = new Date();
+            mydate.setMonth(mydate.getMonth() + 1);
+            if (gend[0].checked) gender = gend[0].value;
+            else if (gend[1].checked) gender = gend[1].value;
+            if (document.getElementById("r").selected) color = document.getElementById("r").value;
+            else if (document.getElementById("g").selected) color = document.getElementById("g").value;
+            else if (document.getElementById("b").selected) color = document.getElementById("b").value;
+            document.cookie = "user_name=" + name + ";expires=" + mydate;
+            document.cookie = "user_gender=" + gender + ";expires=" + mydate;
+            document.cookie = "user_color=" + color + ";expires=" + mydate;
+            document.cookie = "user_counter=0;expires=" + mydate;
+            //location.replace("JS-Lab4-profile.html");
+            window.open ("JS-Lab4-profile.html","_self",false)
+        }
+    </script>
+</body>
+
+</html>

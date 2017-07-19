@@ -1,0 +1,27 @@
+<html>
+
+<head>
+    <title>js-Lab6-profile</title>
+    <meta charset="utf-8"/>
+</head>
+
+<body>
+    <script>
+        var counter;
+        var mydate = new Date();
+        var str = document.cookie.split(";");
+        var i;
+        var arr = [];
+        mydate.setMonth(mydate.getMonth()+1);
+        for (i = 0; i < 4; i++) {
+            var str2 = str[i].split("=");
+            arr[i] = str2[1];
+        }
+        counter = parseInt(arr[3]);
+        counter++;
+        document.write("<img src=" + arr[1] + ".jpg /> <h2><b>Welcome <font color=" + arr[2] + ">" + arr[0] + "</font></b> you Have visited this site <font color=" + arr[2] + "><b>" + counter + "</b></font> times :)</h2>");
+        document.cookie = "user_counter=" + counter + ";expires=" + mydate;
+    </script>
+</body>
+
+</html>
